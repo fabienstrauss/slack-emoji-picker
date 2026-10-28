@@ -1,0 +1,51 @@
+{
+  "name": "slack-emoji-picker",
+  "title": "Slack Emoji Picker",
+  "description": "Browse, collect and paste your custom Slack emojis",
+  "icon": "icon.png",
+  "author": "fabien",
+  "platforms": [
+    "macOS"
+  ],
+  "categories": [
+    "Communication"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search",
+      "title": "Search Slack Emojis",
+      "description": "Browse custom emojis, favorites and collections",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "token",
+      "type": "password",
+      "required": true,
+      "title": "Slack Token",
+      "description": "Bot or user token with emoji:read scope"
+    }
+  ],
+  "scripts": {
+    "dev": "ray develop",
+    "build": "ray build",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "build:check": "ray build -e dist -o dist --non-interactive"
+  },
+  "dependencies": {
+    "@raycast/api": "2.9.0",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.8.0"
+  },
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22.14.0"
+  }
+}

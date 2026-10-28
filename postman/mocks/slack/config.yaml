@@ -1,0 +1,11 @@
+version: 1
+id: 5f2d10fd-be75-4dcb-9f96-8e0e1c13b488
+name: Slack emoji.list subset
+slug: slack-emoji-list-subset
+protocol: http
+port: 4500
+scenarios:
+  - name: default
+    path: ./default.js
+    default: true
+interceptRequests: true

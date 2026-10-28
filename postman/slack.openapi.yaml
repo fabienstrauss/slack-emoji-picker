@@ -1,0 +1,41 @@
+openapi: 3.0.3
+info:
+  title: Slack emoji.list subset
+  version: 1.0.0
+  description: Based on https://docs.slack.dev/reference/methods/emoji.list
+servers:
+  - url: https://slack.com/api
+paths:
+  /emoji.list:
+    get:
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Custom emoji map, or ok false and a Slack error code
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  emoji:
+                    type: object
+                    additionalProperties:
+                      type: string
+                  error:
+                    type: string
+              example:
+                ok: true
+                emoji:
+                  party: https://example.com/party.gif
+                  celebrate: alias:party
+        "429":
+          description: Rate limited; Retry-After header gives seconds to wait
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Slack bot or user token with emoji:read scope
